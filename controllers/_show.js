@@ -62,7 +62,17 @@ exports.showAllEvents = (req, res) => {
 exports.showOneEvent = (req, res) => {
   Event
     .findOne({
-      where: { id: req.params.id }
+      where: { id: req.params.id },
+      include: [
+        {
+          model: Cat,
+          as: "categories"
+        },
+        {
+          model: user,
+          as: 'user'
+        }
+      ]
     })
     .then(data => res.send(data))
     .catch(err => res.send(err));
