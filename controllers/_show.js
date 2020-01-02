@@ -16,7 +16,17 @@ exports.showAllUser = (req, res) => {
 exports.showOneUser = (req, res) => {
   user
     .findOne({
-      where: { id: req.params.id }
+      where: { id: req.params.id },
+      include: [
+        {
+          model: order,
+          as: "order"
+        },
+        {
+          model: wishlist,
+          as: 'wishlist'
+        }
+      ]
     })
     .then(data => res.send(data))
     .catch(err => res.send(err));

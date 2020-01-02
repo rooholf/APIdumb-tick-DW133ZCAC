@@ -50,6 +50,8 @@ app.group("/api", router => {
     router.post("/order",postController.storeOrder )
     router.get("/order", showController.showAllOrder)
     router.get("/order/:id",showController.showOneOrder)
+    router.patch("/order/:id", updateController.updateOrder)
+    
 
     //wishlist endpoint
     router.get("/wishlist",showController.showAllWishlist)
