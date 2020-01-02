@@ -1,5 +1,6 @@
 const models = require("../models");
 const user = models.user;
+const order = models.order
 const wishlist = models.wishlist
 
 exports.storeUser = (req, res) => {
