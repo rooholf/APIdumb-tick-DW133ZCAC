@@ -26,10 +26,13 @@ exports.login = (req, res) => {
 exports.register = (req, res) => {
   User.create(req.body)
     .then(user => {
+      const id = user.id
+      const name = user.name
+      const img = user.img
       const email = user.email;
       const token = jwt.sign({ emailJwt: email }, "my-secret-key");
       res.send({
-        user,
+        id,name,img, email,
         token
       });
     })
