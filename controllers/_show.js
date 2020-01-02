@@ -4,6 +4,8 @@ const Event = models.event;
 const user = models.user;
 const order = models.order;
 
+const wishlist = models.wishlist
+
 exports.showAllUser = (req, res) => {
   user
     .findAll({})
@@ -74,6 +76,55 @@ exports.showOneEvent = (req, res) => {
         }
       ]
     })
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+};
+
+exports.showAllOrder = (req, res) => {
+  order
+    .findAll({})
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+};
+
+exports.showOneOrder = (req, res) => {
+  order.findOne({
+    include: [
+      {
+        model: Event,
+        as: "event"
+      },
+      {
+        model: user,
+        as: 'user'
+      }
+    ]
+  })
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+};
+
+
+exports.showAllWishlist = (req, res) => {
+  wishlist
+    .findAll({})
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+};
+
+exports.showOneWishlist = (req, res) => {
+  wishlist.findOne({
+    include: [
+      {
+        model: Event,
+        as: "event"
+      },
+      {
+        model: user,
+        as: 'user'
+      }
+    ]
+  })
     .then(data => res.send(data))
     .catch(err => res.send(err));
 };
