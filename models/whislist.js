@@ -1,14 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const order = sequelize.define('order', {
+  const whislist = sequelize.define('wishlist', {
     eventId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER,
-    qty: DataTypes.INTEGER,
-    total: DataTypes.INTEGER,
-    paymentStatus: DataTypes.BOOLEAN,
-    confirmStatus: DataTypes.BOOLEAN
+    userId: DataTypes.INTEGER
   }, {});
-  order.associate = function(models) {
+  whislist.associate = function(models) {
     // associations can be defined here
     order.belongsTo(models.event, {
       as: 'event',
@@ -19,5 +15,5 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId'
     })
   };
-  return order;
+  return whislist;
 };

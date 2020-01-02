@@ -32,6 +32,10 @@ module.exports = (sequelize, DataTypes) => {
     user.hasMany(models.order, {
       as: 'order',
       foreignKey: 'userId'
+    }),
+    user.hasMany(models.wishlist, {
+      as: 'wishlist',
+      foreignKey: 'userId'
     })
   };
   return user;

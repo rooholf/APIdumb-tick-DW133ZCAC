@@ -12,17 +12,16 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-   return queryInterface.bulkInsert('orders', [
-     {
-       eventId:1,
-       userId:1,
-       qty: 2,
-       total:100000,
-       paymentStatus:true,
-       confirmStatus:false
-     },
-     
-   ])
+
+
+   return queryInterface.bulkInsert('wishlists', [
+    {
+      eventId:1,
+      userId:1,
+    },
+    
+  ])
+ 
   },
 
   down: (queryInterface, Sequelize) => {
@@ -33,6 +32,7 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-   return queryInterface.bulkDelete('orders', null,{});
+   return queryInterface.bulkDelete('wishlists', null,{});
+  
   }
 };

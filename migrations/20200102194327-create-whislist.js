@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("orders", {
+    return queryInterface.createTable('wishlists', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -28,23 +28,11 @@ module.exports = {
         onDelete: "cascade",
         onUpdate: "cascade"
       },
-      qty: {
-        type: Sequelize.INTEGER
-      },
-      total: {
-        type: Sequelize.INTEGER
-      },
-
-      paymentStatus: {
-        type: Sequelize.BOOLEAN
-      },
-      confirmStatus: {
-        type: Sequelize.BOOLEAN
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()
+        
       },
       updatedAt: {
         allowNull: false,
@@ -54,6 +42,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("orders");
+    return queryInterface.dropTable('wishlists');
   }
 };
