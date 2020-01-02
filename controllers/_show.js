@@ -48,6 +48,10 @@ exports.showAllEvents = (req, res) => {
       {
         model: Cat,
         as: "categories"
+      },
+      {
+        model: user,
+        as: 'user'
       }
     ]
   })
