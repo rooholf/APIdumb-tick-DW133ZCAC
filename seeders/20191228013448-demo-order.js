@@ -18,7 +18,8 @@ module.exports = {
        userId:1,
        paymentStatus:true,
        confirmStatus:false
-     }
+     },
+     
    ])
   },
 
