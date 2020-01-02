@@ -44,6 +44,10 @@ app.group("/api", router => {
     //events endpoint
     router.get("/events", showController.showAllEvents)
     router.get("/event/:id", showController.showOneEvent)
+
+
+    //order endpoint
+    router.post("/order",postController.storeOrder )
 })
 
 
