@@ -124,6 +124,7 @@ exports.showAllWishlist = (req, res) => {
 
 exports.showOneWishlist = (req, res) => {
   wishlist.findOne({
+    where: { userId: req.params.id },
     include: [
       {
         model: Event,
