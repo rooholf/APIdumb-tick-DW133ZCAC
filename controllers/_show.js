@@ -139,3 +139,17 @@ exports.showOneWishlist = (req, res) => {
     .then(data => res.send(data))
     .catch(err => res.send(err));
 };
+
+exports.showWishlistOnUser = (req, res) => {
+  wishlist.findAll({
+    where: { userId: req.params.id },
+    include: [
+      {
+        model: Event,
+        as: "event"
+      }
+    ]
+  })
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+};

@@ -56,7 +56,8 @@ app.group("/api", router => {
     //wishlist endpoint
     router.get("/wishlist",showController.showAllWishlist)
     router.post("/wishlist",postController.storeWishlist)
-    router.get("/wishlist/:id/user",showController.showOneWishlist)
+    router.get("/wishlist/:id",showController.showOneWishlist)
+    router.get("/wishlist/:id/user",showController.showWishlistOnUser)
 })
 
 
