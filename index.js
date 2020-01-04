@@ -45,7 +45,7 @@ app.group("/api", router => {
   router.get("/events", showController.showAllEvents);
   router.get("/event/:id", showController.showOneEvent);
   router.post("/event", postController.storeEvent);
-  router.delete("/event",deleteController.deleteEvent)
+  router.delete("/event/:id",deleteController.deleteEvent)
   //order endpoint
   router.post("/order", postController.storeOrder);
   router.get("/order", showController.showAllOrder);
