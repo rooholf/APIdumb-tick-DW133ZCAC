@@ -16,8 +16,7 @@ exports.updateUser = (req,res) => {
   exports.updateOrder = (req,res) => {
     const id = req.params.id
     order.update(req.body, {where: {id: req.params.id}}).then(data=>{
-      res.send(data,
-        id)
+      res.status(status).send(body)
     }).catch(err =>{
       res.send(err)
     })
