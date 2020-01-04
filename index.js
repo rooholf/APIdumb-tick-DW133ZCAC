@@ -35,6 +35,7 @@ app.group("/api", router => {
   router.post("/users", postController.storeUser);
   router.get("/user/:id", showController.showOneUser);
   router.patch("/user/:id", updateController.updateUser);
+  router.get("/user/:id/order",showController.showAllOrderOnUser)
 
   //category endpoint
   router.get("/categories", showController.showAllCategories);
@@ -49,6 +50,7 @@ app.group("/api", router => {
   router.post("/order", postController.storeOrder);
   router.get("/order", showController.showAllOrder);
   router.get("/order/:id", showController.showOneOrder);
+  router.get("/order/:id/user",showController.showOrderOnUser)
   router.patch("/order/:id", updateController.updateOrder);
 
   //wishlist endpoint

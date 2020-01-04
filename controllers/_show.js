@@ -114,6 +114,19 @@ exports.showOneOrder = (req, res) => {
     .catch(err => res.send(err));
 };
 
+exports.showAllOrderOnUser = (req,res) => {
+  user.findAll({
+    where: {id:req.params.id},
+    include: [
+      {
+        model:order,
+        as:'order'
+      }
+    ]
+  }).then(data => res.send(data))
+  .catch(err => res.send(err))
+}
+
 
 exports.showAllWishlist = (req, res) => {
   wishlist
@@ -147,6 +160,24 @@ exports.showWishlistOnUser = (req, res) => {
       {
         model: Event,
         as: "event"
+      }
+    ]
+  })
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+};
+
+exports.showOrderOnUser = (req, res) => {
+  order.findAll({
+    where: { userId: req.params.id },
+    include: [
+      {
+        model: Event,
+        as: "event"
+      },
+      {
+        model: user,
+        as: 'user'
       }
     ]
   })
