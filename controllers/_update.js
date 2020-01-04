@@ -1,5 +1,6 @@
 const models = require("../models");
 const user = models.user;
+const order = models.order
 
 
 exports.updateUser = (req,res) => {
